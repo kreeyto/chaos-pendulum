@@ -40,7 +40,6 @@ while true
     disp(' ')
 end
 
-
 n = input('Enter the number of pendulums: ');
 
 g = 9.8; % gravitational acceleration
@@ -161,7 +160,7 @@ else
     subplot(1,2,2)
     [t_full,y_full] = ode45(@(t,y)pendulum(t,y,m,l,g,n),[0 max(tspan)],y0); %#ok<ASGLU>
     x_full = zeros(length(t_full),n);
-    y_full = zeros(length(t_full),n);
+    y_full = zeros(length(t_full),2*n-1);
     for j = 1:n
         if j == 1
             x_full(:,j) = l(j)*sin(y_full(:,j));
